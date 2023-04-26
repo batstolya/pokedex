@@ -1,0 +1,25 @@
+.pokemon-list {
+  max-width: 650px;
+  margin: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(175px, 1fr));
+  grid-gap: 15px;
+
+  &__button {
+    display: block;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: aliceblue;
+    font-size: medium;
+    margin: 0 auto;
+    background: #e4640a;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: #f16b0c;
+    }
+  }
+}
