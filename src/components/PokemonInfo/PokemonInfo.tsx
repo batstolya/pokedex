@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PokemonInfo.scss";
 import { Pokemon } from "../../types/Pokemon";
 import classNames from "classnames";
@@ -6,13 +6,14 @@ import classNames from "classnames";
 type Props = {
   pokemon: Pokemon;
   pokemonId: number;
-  isVisible: boolean;
+  isOpenInfo: boolean;
+  setIsOpenInfo: (arg: boolean) => void;
 };
 
 export const PokemonInfo: React.FC<Props> = ({
   pokemon,
-  pokemonId,
-  isVisible,
+  isOpenInfo,
+  setIsOpenInfo,
 }) => {
   const { sprites, name, id, weight, moves, stats } = pokemon;
 
@@ -34,12 +35,26 @@ export const PokemonInfo: React.FC<Props> = ({
     countId = id < 10 ? `00${id}` : `0${id}`;
   }
 
+  const handleClose = () => {
+    setIsOpenInfo(!isOpenInfo);
+  };
+
   return (
     <div
       className={classNames("pokemon-info", {
-        "pokemon-info__open": pokemon.id === pokemonId,
+        "pokemon-info--close": isOpenInfo,
       })}
     >
+      
+      <div className='pokemon-info__close-button' onClick={handleClose}>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
+          <path
+            fill='#000000'
+            d='M19.7,18.3c0.4,0.4,0.4,1,0,1.4C19.5,19.9,19.3,20,19,20s-0.5-0.1-0.7-0.3L10,11.4L1.7,19.7c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4L8.6,10L0.3,1.7c-0.4-0.4-0.4-1,0-1.4C0.5,0.1,0.7,0,1,0s0.5,0.1,0.7,0.3L10,8.6l8.3-8.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L11.4,10L19.7,18.3z'
+          />
+        </svg>
+      </div>
+
       <div className='pokemon-info__wrapper'>
         <img
           className='pokemon-info__img'

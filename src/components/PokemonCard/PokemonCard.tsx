@@ -6,17 +6,16 @@ import { colorsTypes } from "../../helpers/colorsTypes";
 type Props = {
   pokemon: Pokemon;
   setPokemonId: (id: number) => void;
-  isVisible: boolean;
-  setIsVisible: (arg: boolean) => void;
+  setIsOpenInfo: (arg: boolean) => void;
 };
 
 export const PokemonCard: React.FC<Props> = memo(
-  ({ pokemon, setPokemonId, isVisible, setIsVisible }) => {
+  ({ pokemon, setPokemonId, setIsOpenInfo }) => {
     const { sprites, name, types } = pokemon;
 
     const handleClickCard = () => {
       setPokemonId(pokemon.id);
-      setIsVisible(!isVisible);
+      setIsOpenInfo(false);
     };
 
     return (

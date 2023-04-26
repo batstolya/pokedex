@@ -1,10 +1,19 @@
+@import "../../styles/mixins";
+
 .pokemon-list {
-  max-width: 650px;
+  // max-width: 650px;
   margin: 15px;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(175px, 1fr));
   grid-gap: 15px;
+
+  @include onPhone {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  @include onSmallPhone {
+    grid-template-columns: repeat(1, minmax(155px, 1fr));
+  }
 
   &__button {
     display: block;

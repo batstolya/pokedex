@@ -8,12 +8,12 @@ type Props = {
   setPokemonId: (id: number) => void;
   setOffset: React.Dispatch<React.SetStateAction<number>>;
   loading: boolean;
-  isVisible: boolean;
-  setIsVisible: (arg: boolean) => void;
+  setIsOpenInfo: (arg: boolean) => void;
 };
 
+
 export const PokemonList: React.FC<Props> = memo(
-  ({ pokemons, setPokemonId, setOffset, loading, isVisible, setIsVisible }) => {
+  ({ pokemons, setPokemonId, setOffset, loading, setIsOpenInfo }) => {
     const handleClick = () => {
       setOffset((prevOffset) => {
         return prevOffset + 12;
@@ -28,8 +28,7 @@ export const PokemonList: React.FC<Props> = memo(
               <PokemonCard
                 pokemon={pokemon}
                 setPokemonId={setPokemonId}
-                isVisible={isVisible}
-                setIsVisible={setIsVisible}
+                setIsOpenInfo={setIsOpenInfo}
               />
             ))}
         </div>

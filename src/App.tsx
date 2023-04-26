@@ -12,9 +12,7 @@ const App = () => {
   const [offset, setOffset] = useState(0);
   const [pokemonId, setPokemonId] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const [isVisible, setIsVisible] = useState(false);
-
+  const [isOpenInfo, setIsOpenInfo] = useState(true);
 
   useEffect(() => {
     console.log("render 1");
@@ -38,7 +36,6 @@ const App = () => {
     fetchPokemonsData();
   }, [setPokemons, offset]);
   console.log(loading);
-  
 
   const pokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
 
@@ -46,17 +43,23 @@ const App = () => {
     <div className='App'>
       <Header />
       <div className='container'>
-        <div className='red'>
+        <div className='pokemon__wrapper'>
           <PokemonList
             pokemons={pokemons}
             setPokemonId={setPokemonId}
             setOffset={setOffset}
             loading={loading}
-            isVisible={isVisible}
-            setIsVisible={setIsVisible}
+            setIsOpenInfo={setIsOpenInfo}
           />
         </div>
-        {pokemonId && pokemon && <PokemonInfo pokemon={pokemon} pokemonId={pokemonId} isVisible={isVisible} />}
+        {pokemonId && pokemon && (
+          <PokemonInfo
+            pokemon={pokemon}
+            pokemonId={pokemonId}
+            isOpenInfo={isOpenInfo}
+            setIsOpenInfo={setIsOpenInfo}
+          />
+        )}
       </div>
     </div>
   );
