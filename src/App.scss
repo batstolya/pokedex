@@ -1,8 +1,10 @@
 @import "../src/styles/reset";
 @import "../src/styles/mixins";
+@import "../src/styles/variables";
 
 body {
   background-color: #f5f5f5;
+  $font-family: "Sedgwick Ave Display", cursive;
 }
 
 .container {
@@ -12,12 +14,24 @@ body {
   padding: 0 20px;
   display: flex;
   justify-content: space-around;
+
   @include onDesktop {
     justify-content: space-between;
+  }
+  @include onTablet {
+    justify-content: center;
   }
 }
 
 .pokemon__wrapper {
+  margin-top: 80px;
+
+  &--open {
+    @include onTablet {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
   @include onPhone {
     width: 100%;
   }

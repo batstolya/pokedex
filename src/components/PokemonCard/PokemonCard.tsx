@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Pokemon } from "../../types/Pokemon";
 import "./PokemonCard.scss";
-import { colorsTypes } from "../../helpers/colorsTypes";
+import { colorsTypes, firstLetterToUpperCase } from "../../helpers/colorsTypes";
 
 type Props = {
   pokemon: Pokemon;
@@ -19,13 +19,13 @@ export const PokemonCard: React.FC<Props> = memo(
     };
 
     return (
-      <div className='pokemon-card' onClick={handleClickCard}>
+      <div className='pokemon-card' onClick={handleClickCard} >
         <img
           className='pokemon-card__img'
           src={sprites.front_default}
           alt='img'
         />
-        <h3 className='pokemon-card__name'>{name}</h3>
+        <h3 className='pokemon-card__name'>{firstLetterToUpperCase(name)}</h3>
         <div className='pokemon-card__types'>
           {types.map((type) => (
             <div

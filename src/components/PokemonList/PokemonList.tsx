@@ -11,7 +11,6 @@ type Props = {
   setIsOpenInfo: (arg: boolean) => void;
 };
 
-
 export const PokemonList: React.FC<Props> = memo(
   ({ pokemons, setPokemonId, setOffset, loading, setIsOpenInfo }) => {
     const handleClick = () => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./PokemonInfo.scss";
 import { Pokemon } from "../../types/Pokemon";
 import classNames from "classnames";
+import { firstLetterToUpperCase } from "../../helpers/colorsTypes";
 
 type Props = {
   pokemon: Pokemon;
@@ -45,7 +46,6 @@ export const PokemonInfo: React.FC<Props> = ({
         "pokemon-info--close": isOpenInfo,
       })}
     >
-      
       <div className='pokemon-info__close-button' onClick={handleClose}>
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
           <path
@@ -67,7 +67,7 @@ export const PokemonInfo: React.FC<Props> = ({
       </div>
 
       <h3>
-        {name} #{countId}
+        {firstLetterToUpperCase(name)} #{countId}
       </h3>
       <table>
         <tr>
@@ -76,7 +76,7 @@ export const PokemonInfo: React.FC<Props> = ({
         </tr>
         {pokemonStatus.map((item) => (
           <tr>
-            <td>{item.name}</td>
+            <td>{firstLetterToUpperCase(item.name)}</td>
             <td>{item.value}</td>
           </tr>
         ))}

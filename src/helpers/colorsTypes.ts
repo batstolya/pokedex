@@ -18,3 +18,7 @@ export const colorsTypes: Record<string, string> = {
     steel: '#B7B7CE',
     fairy: '#D685AD',
   };
+
+export const firstLetterToUpperCase = (word:string) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}

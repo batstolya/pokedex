@@ -6,6 +6,7 @@ import { Pokemon } from "./types/Pokemon";
 import { Header } from "./components/Header";
 import { PokemonInfo } from "./components/PokemonInfo";
 import { getPokemons } from "./API/getPokemons";
+import classNames from "classnames";
 
 const App = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -43,7 +44,11 @@ const App = () => {
     <div className='App'>
       <Header />
       <div className='container'>
-        <div className='pokemon__wrapper'>
+        <div
+          className={classNames("pokemon__wrapper", {
+            "pokemon__wrapper--open": !isOpenInfo,
+          })}
+        >
           <PokemonList
             pokemons={pokemons}
             setPokemonId={setPokemonId}
