@@ -52,9 +52,7 @@ const App = () => {
         const urls = await getUrlsPokemon(pokemonType);
         setPokemonUrls(urls);
 
-        const pokemonData = await fetchData(
-          urls.slice(offsetForType, offsetForType + 12)
-        );
+        const pokemonData = await fetchData(urls.slice(0, 12));
         setPokemons(pokemonData);
         setLoading(false);
       } catch (error) {
@@ -66,6 +64,10 @@ const App = () => {
   }, [pokemonType]);
 
   useEffect(() => {
+    if (offsetForType === 0) {
+      return;
+    }
+
     const fetchPokemonsByType = async () => {
       try {
         setLoading(true);
@@ -84,7 +86,7 @@ const App = () => {
     };
 
     fetchPokemonsByType();
-  }, [offsetForType]);
+  }, [pokemonUrls, offsetForType]);
 
   let loadingShowCondition = false;
   if (offsetForType === 0 && pokemonType !== "") {
@@ -116,7 +118,7 @@ const App = () => {
             "pokemon__wrapper--open": !isOpenInfo,
           })}
         >
-          {loadingShowCondition ? (
+          {loadingShowCondition? (
             <ReactLoading
               className='loader'
               type='spin'
