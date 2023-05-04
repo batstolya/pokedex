@@ -1,7 +1,6 @@
 @import "../../styles/mixins";
 
 .pokemon-list {
-  // max-width: 650px;
   margin: 15px;
 
   display: grid;
@@ -24,7 +23,7 @@
     margin: 0 auto;
     background: #e4640a;
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     &:hover {

@@ -3,7 +3,7 @@
 @import "../src/styles/variables";
 
 body {
-  background-color: #f5f5f5;
+  background: #effdff;
   $font-family: "Sedgwick Ave Display", cursive;
 }
 
@@ -29,10 +29,20 @@ body {
   &--open {
     @include onTablet {
       opacity: 0.2;
-      pointer-events: none;
     }
   }
   @include onPhone {
     width: 100%;
   }
+}
+
+.load {
+  width: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
 }

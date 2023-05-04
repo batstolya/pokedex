@@ -1,0 +1,25 @@
+@import "../../../src/styles/mixins";
+
+.pokemon-types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(24px, 1fr));
+
+  grid-gap: 15px;
+
+  position: fixed;
+  left: 40px;
+  padding: 10px;
+
+  @include onDesktop {
+    left: 0;
+    grid-template-columns: repeat(2, minmax(24px, 1fr));
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(2, minmax(24px, 1fr));
+  }
+
+  @include onPhone {
+    grid-template-columns: repeat(1, minmax(24px, 1fr));
+  }
+}

@@ -1,0 +1,58 @@
+@import "../../../styles/mixins";
+.header__menu {
+  @include onDesktop {
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 100%;
+  }
+
+  &-icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+
+    &--closed {
+      background-image: url("../../../assets/images/menu-closed.svg");
+    }
+
+    &--opened {
+      background-image: url("../../../assets/images/menu-opened.svg");
+    }
+  }
+
+  &-opener {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 100%;
+      width: 100%;
+
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__icons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}
